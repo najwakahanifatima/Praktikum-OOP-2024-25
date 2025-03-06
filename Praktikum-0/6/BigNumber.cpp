@@ -88,18 +88,13 @@ BigNumber BigNumber::operator+(const BigNumber& other) {
   // - c[i] = this->digit[i]
   // - c[i] = other[i] 
   for (int i = 0; i < BigNumber::getMaxDigit(); i++){
-    this->digit[i] = 0;
+    c[i] = 0;
   }
-  int carry = 0;
   for (int i = 0; i < BigNumber::getMaxDigit(); i++) {
-    int add = this->digit[i] + other[i];
-    if (carry){
-      add++;
-      carry = 0;
-    }
-    if (add >= 10){
-      c.setDigit(i , add % 10);
-      carry = 1;
+    c[i] += this->digit[i] + other[i];
+    if (c[i] >= 10){
+      c[i] %= 10;
+      c[i+1] ++;
     }
   }
   return c;
