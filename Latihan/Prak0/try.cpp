@@ -38,7 +38,7 @@ void Penganan::SetKeik(int k) {
     keik = k;
 }
 
-// mengisi bagian panekuk
+// mengisi bagian panekuk 
 void Penganan::SetPanekuk(int p) {
     panekuk = p;
 }
